@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://enally.in/files-manager/assets/Fevicon.png" type="image/x-icon">
+    <meta property="og:image" content="https://enally.in/files-manager/assets/about_img.webp">
+    <meta property="og:image" content="https://enally.in/files-manager/assets/about_img.webp">
+    <meta name="twitter:image" content="https://enally.in/files-manager/assets/about_img.webp">
+
+    <title>Operator 2</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <label for="no1">Enter 1st no.</label>
+            </td>
+            <td>
+                <input type="text" id="no1">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="no2">Enter 2st no.</label>
+            </td>
+            <td>
+                <input type="text" id="no2">
+            </td>
+        </tr>
+    </table>
+    <button onclick="check()">Test Now</button>
+
+    <script>
+        function check() {
+            var a = parseInt(document.getElementById("no1").value);
+            var b = parseInt(document.getElementById("no2").value);
+            var c = a + b;
+            alert(c);
+            console.log(c);
+        }
+    </script>
+</body>
+
+</html>
