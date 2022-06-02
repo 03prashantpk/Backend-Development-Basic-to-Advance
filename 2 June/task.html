@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+
+    <style>
+        .box {
+            padding: 4px 10px;
+            width: 350px;
+        }
+        
+        .box-inner {
+            padding: 10px;
+        }
+        
+        label {
+            padding: 10px;
+            font-weight: 500;
+            font-size: 18px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+        input {
+            float: right;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px rgb(92, 92, 92) solid;
+        }
+        
+        button {
+            width: 350px;
+            padding: 4px 8px;
+            background-color: #FF5F0F;
+            border-radius: 6px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.53);
+            -webkit-box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.53);
+            -moz-box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.53);
+        }
+        
+        #data {
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="box-inner">
+            <label for="">Maths Marks</label>
+            <input type="text" id="mth" placeholder="Maths">
+        </div>
+        <div class="box-inner">
+            <label for="">Chemistry Marks</label>
+            <input type="text" id="chem" placeholder="Chemistry">
+        </div>
+        <div class="box-inner">
+            <label for="">Physics Marks</label>
+            <input type="text" id="phy" placeholder="Physics">
+        </div>
+        <div class="box-inner">
+            <label for="">English</label>
+            <input type="text" id="eng" placeholder="English">
+        </div>
+        <div class="box-inner">
+            <label for="">Physical Marks</label>
+            <input type="text" id="physical" placeholder="Physical">
+        </div>
+        <div class="box-inner">
+            <label for="">CSE Marks</label>
+            <input type="text" id="cse" placeholder="CSE">
+        </div>
+        <div class="box-inner">
+            <button onclick="generate_result()">Generate Result</button>
+        </div>
+        <div class="box-inner">
+            <p id="data">Please fill all the inputs and click on Generet Results</p>
+            <p id="dataMTH"></p>
+            <p id="dataCHEM"></p>
+            <p id="dataPHY"></p>
+            <p id="dataENG"></p>
+            <p id="dataPHYSICAL"></p>
+            <p id="dataCSE"></p>
+
+        </div>
+    </div>
+
+    <script>
+        function generate_result() {
+
+            // Storing all marks
+            var mth = document.getElementById("mth").value;
+            var chem = document.getElementById("chem").value;
+            var phy = document.getElementById("phy").value;
+            var eng = document.getElementById("eng").value;
+            var physical = document.getElementById("physical").value;
+            var cse = document.getElementById("cse").value;
+
+            // Less than 40 comment
+            var lessThan40 = "You need to improve more ";
+
+            if (mth < 40) {
+                document.getElementById("dataMTH").innerHTML = lessThan40 + "MATHS";
+            } else if (chem < 40) {
+                document.getElementById("dataCHE").innerHTML = lessThan40 + "CHE";
+            } else if (phy < 40) {
+                document.getElementById("dataPHY").innerHTML = lessThan40 + "PHY";
+            } else if (eng < 40) {
+                document.getElementById("dataENG").innerHTML = lessThan40 + "ENG";
+            } else if (physical < 40) {
+                document.getElementById("dataPHYSICAL").innerHTML = lessThan40 + "Physical";
+            } else if (cse < 40) {
+                document.getElementById("dataCSE").innerHTML = lessThan40 + "CSE";
+            }
+
+            // Total Marks up and Percentage
+            var allMarks = mth + chem + phy + eng + physical + cse;
+            var Percentage = (allMarks / 600) * 100;
+            console.log(Percentage);
+
+            // Comment according percentage
+            if (Percentage < 40) {
+                document.getElementById("data").innerHTML = "You need to really work hard.";
+            } else if (Percentage < 80) {
+                document.getElementById("data").innerHTML = "Impressive Results";
+            } else if (Percentage > 90) {
+                document.getElementById("data").innerHTML = "Excellent  Results";
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
