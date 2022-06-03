@@ -32,7 +32,7 @@
         }
         
         button {
-            width: 350px;
+            width: 150px;
             padding: 4px 8px;
             background-color: #FF5F0F;
             border-radius: 6px;
@@ -42,11 +42,31 @@
             box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.53);
             -webkit-box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.53);
             -moz-box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.53);
+            cursor: pointer;
+        }
+        
+        button:hover {
+            width: 150px;
+            padding: 4px 8px;
+            background-color: #FF5F0F;
+            border-radius: 6px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            animation-duration: 4ms;
+            cursor: pointer;
         }
         
         #data {
             font-size: 18px;
             color: green;
+        }
+        
+        p {
+            text-align: center;
+            font-size: 17px;
+            color: red;
+            padding: 0;
         }
     </style>
 </head>
@@ -57,39 +77,40 @@
         <div class="box-inner">
             <label for="">Maths Marks</label>
             <input type="text" id="mth" placeholder="Maths">
+            <p id="dataMTH"></p>
         </div>
         <div class="box-inner">
             <label for="">Chemistry Marks</label>
             <input type="text" id="chem" placeholder="Chemistry">
+            <p id="dataCHEM"></p>
         </div>
         <div class="box-inner">
             <label for="">Physics Marks</label>
             <input type="text" id="phy" placeholder="Physics">
+            <p id="dataPHY"></p>
         </div>
         <div class="box-inner">
             <label for="">English</label>
             <input type="text" id="eng" placeholder="English">
+            <p id="dataENG"></p>
         </div>
         <div class="box-inner">
             <label for="">Physical Marks</label>
             <input type="text" id="physical" placeholder="Physical">
+            <p id="dataPHYSICAL"></p>
         </div>
         <div class="box-inner">
             <label for="">CSE Marks</label>
             <input type="text" id="cse" placeholder="CSE">
+            <p id="dataCSE"></p>
         </div>
         <div class="box-inner">
             <button onclick="generate_result()">Generate Result</button>
+            <button onclick="reset()">Reset</button>
         </div>
         <div class="box-inner">
+            <p id="workHard"></p>
             <p id="data">Please fill all the inputs and click on Generet Results</p>
-            <p id="dataMTH"></p>
-            <p id="dataCHEM"></p>
-            <p id="dataPHY"></p>
-            <p id="dataENG"></p>
-            <p id="dataPHYSICAL"></p>
-            <p id="dataCSE"></p>
-
         </div>
     </div>
 
@@ -97,44 +118,62 @@
         function generate_result() {
 
             // Storing all marks
-            var mth = document.getElementById("mth").value;
-            var chem = document.getElementById("chem").value;
-            var phy = document.getElementById("phy").value;
-            var eng = document.getElementById("eng").value;
-            var physical = document.getElementById("physical").value;
-            var cse = document.getElementById("cse").value;
+            var mth = parseInt(document.getElementById("mth").value);
+            var chem = parseInt(document.getElementById("chem").value);
+            var phy = parseInt(document.getElementById("phy").value);
+            var eng = parseInt(document.getElementById("eng").value);
+            var physical = parseInt(document.getElementById("physical").value);
+            var cse = parseInt(document.getElementById("cse").value);
 
             // Less than 40 comment
             var lessThan40 = "You need to improve more ";
 
             if (mth < 40) {
                 document.getElementById("dataMTH").innerHTML = lessThan40 + "MATHS";
-            } else if (chem < 40) {
+            }
+            if (chem < 40) {
                 document.getElementById("dataCHE").innerHTML = lessThan40 + "CHE";
-            } else if (phy < 40) {
+            }
+            if (phy < 40) {
                 document.getElementById("dataPHY").innerHTML = lessThan40 + "PHY";
-            } else if (eng < 40) {
+            }
+            if (eng < 40) {
                 document.getElementById("dataENG").innerHTML = lessThan40 + "ENG";
-            } else if (physical < 40) {
+            }
+            if (physical < 40) {
                 document.getElementById("dataPHYSICAL").innerHTML = lessThan40 + "Physical";
-            } else if (cse < 40) {
+            }
+            if (cse < 40) {
                 document.getElementById("dataCSE").innerHTML = lessThan40 + "CSE";
             }
 
+            if (mth < 40 && chem < 40 && phy < 40 && eng < 40 && physical < 40 && cse < 40) {
+                document.getElementById("workHard").innerHTML = "You really need to work hard.";
+            }
             // Total Marks up and Percentage
             var allMarks = mth + chem + phy + eng + physical + cse;
             var Percentage = (allMarks / 600) * 100;
             console.log(Percentage);
+            console.log(allMarks);
 
             // Comment according percentage
-            if (Percentage < 40) {
+            if (Percentage <= 40) {
                 document.getElementById("data").innerHTML = "You need to really work hard.";
-            } else if (Percentage < 80) {
+            } else if (Percentage <= 80) {
                 document.getElementById("data").innerHTML = "Impressive Results";
-            } else if (Percentage > 90) {
+            } else if (Percentage >= 90) {
                 document.getElementById("data").innerHTML = "Excellent  Results";
             }
 
+        }
+
+        function reset() {
+            var mth = document.getElementById("mth").value = "";
+            var chem = document.getElementById("chem").value = "";
+            var phy = document.getElementById("phy").value = "";
+            var eng = document.getElementById("eng").value = "";
+            var physical = document.getElementById("physical").value = "";
+            var cse = document.getElementById("cse").value = "";
         }
     </script>
 

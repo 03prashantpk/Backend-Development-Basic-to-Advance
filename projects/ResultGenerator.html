@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Generator - Project 1</title>
+
+    <!-- Meta tags -->
+    <link rel="icon" href="https://enally.in/files-manager/assets/Fevicon.png" type="image/x-icon">
+    <meta property="og:image" content="https://enally.in/files-manager/assets/about_img.webp">
+    <meta property="og:image" content="https://enally.in/files-manager/assets/about_img.webp">
+    <meta name="twitter:image" content="https://enally.in/files-manager/assets/about_img.webp">
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #DAF3F7;
+            background-image: url('https://assets.oneclass.com/oc-static/static/assets/images/pages/pricing_landing/courses_list@2x.png');
+            background-repeat: no-repeat;
+            background-size: 300px;
+            background-position: center right;
+        }
+        
+        section {
+            padding: 20px 10px 60px 100px;
+            background-image: url('https://assets.oneclass.com/oc-static/static/assets/images/pages/pricing_landing/courses_about@2x.png');
+            background-repeat: no-repeat;
+            background-size: 300px;
+            background-position: bottom left;
+        }
+        
+        .head {
+            text-align: center;
+            font-size: 24px;
+            font-family: fantasy;
+            color: #ff6200;
+        }
+        
+        .main {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .box {
+            width: 50%;
+            background-color: #E6ECC6;
+            padding: 8px 30px;
+            border-radius: 8px;
+            -webkit-box-shadow: 2px 5px 12px 0px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 2px 5px 12px 0px rgba(0, 0, 0, 0.4);
+            box-shadow: 2px 5px 12px 0px rgba(0, 0, 0, 0.4);
+            transition-duration: 0.9s;
+            transition-delay: 0.4ms;
+            background-color: #f9eeda;
+            background-image: url('https://assets.oneclass.com/oc-static/static/assets/images/pages/home/card-1@2x.webp');
+            background-repeat: no-repeat;
+            background-size: 300px;
+            background-position: bottom right;
+            padding-bottom: 100px;
+        }
+        
+        .box:hover {
+            -webkit-box-shadow: 2px 5px 12px 0px rgba(0, 0, 0, 0.06);
+            -moz-box-shadow: 2px 5px 12px 0px rgba(0, 0, 0, 0.053);
+            box-shadow: 2px 5px 12px 0px rgba(0, 0, 0, 0.09);
+        }
+        
+        .box-inner {
+            padding: 4px;
+        }
+        
+        h4 {
+            text-align: center;
+            font-size: 18px;
+            font-family: fantasy;
+            color: #dc5908;
+            border-bottom: #ccc 1px solid;
+            padding: 0 0 8px 0;
+        }
+        
+        label {
+            font-size: 17px;
+            font-family: fantasy;
+            font-weight: 600;
+            color: rgb(38, 38, 38);
+            padding: 6px 4px;
+        }
+        
+        input {
+            float: right;
+            width: 60%;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 3px;
+            -webkit-box-shadow: inset 2px 5px 12px 0px rgba(0, 0, 0, 0.123);
+            -moz-box-shadow: inset 2px 5px 12px 0px rgba(0, 0, 0, 0.138);
+            box-shadow: inset 2px 5px 12px 0px rgba(0, 0, 0, 0.055);
+        }
+        
+        input:focus {
+            background-color: rgb(240, 240, 240);
+            color: #dc5908;
+            font-weight: 600;
+        }
+        
+        .btn {
+            text-align: right;
+        }
+        
+        button {
+            background-color: #dc5908;
+            border: none;
+            padding: 6px 10px;
+            color: #f1f1f1;
+            font-size: 17px;
+            font-family: fantasy;
+            border-radius: 3px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        #reset {
+            background-color: #9b0404;
+            opacity: 0.7;
+        }
+        
+        #reset:hover {
+            background-color: #9b0404;
+            opacity: 1;
+            transition-duration: 0.2s;
+            transition-delay: 1ms;
+        }
+        
+        .instructions {
+            text-align: center;
+            font-style: italic;
+            color: #6f6f6fdd;
+            font-family: fantasy;
+            font-size: 13px;
+        }
+        
+        .space {
+            padding: 20px 0;
+        }
+        
+        .genereateData {
+            /* visibility: hidden; */
+            display: none;
+        }
+        
+        .danger {
+            color: rgb(166, 2, 2);
+            font-weight: 600;
+        }
+        
+        #response {
+            text-align: center;
+            color: #038603;
+        }
+        
+        table {
+            width: 100%;
+            padding: 8px 10px;
+            text-transform: capitalize;
+            /* border: 1px #cfcfcfdd solid; */
+            text-align: center;
+        }
+        
+        td {
+            border-bottom: 1px #989898dd solid;
+        }
+        
+        .thead {
+            font-size: 18px;
+            font-weight: 600;
+            color: #dc5908;
+            padding: 10px 0px;
+        }
+        
+        .sub_name {
+            text-align: left;
+            font-weight: 600;
+            font-family: fantasy;
+            padding: 6px 10px;
+            color: #333333f8;
+        }
+        
+        .total_ {
+            text-align: left;
+            padding: 6px 10px;
+        }
+        
+        #response_grade,
+        #response_percentage {
+            text-align: center;
+            color: #dc5908;
+            font-size: 20px;
+        }
+        
+        .failed {
+            font-size: 15px;
+            font-style: italic;
+            color: #9b0404;
+        }
+        
+        .grade-system {
+            font-size: 14px;
+            color: #424242;
+            text-align: right;
+        }
+        
+        .grade-system span {
+            font-size: 17px;
+            font-weight: 600;
+            padding-bottom: 10px;
+            color: #424242;
+        }
+        
+        hr {
+            border-top: 1px solid #9d9d9d5f;
+        }
+        
+        .box-bg {
+            background-color: #f9eeda;
+            background-image: url('https://enally.in/files-manager/assets/banner3.webp');
+            background-repeat: no-repeat;
+            background-size: 300px;
+            background-position: bottom left;
+            padding-bottom: 100px;
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #f07c34cf;
+            font-family: fantasy;
+            font-size: 14px;
+            padding: 0;
+        }
+        
+        a {
+            color: #0027b5;
+            font-weight: 600;
+        }
+        
+        .float-image-1 {
+            position: fixed;
+            top: 10%;
+            left: 18%;
+            opacity: 0.6;
+            transition: transform 2s;
+        }
+        
+        .float-image-1:hover {
+            transform: rotate(10deg);
+        }
+        
+        .float-image-3 {
+            position: absolute;
+            top: 10%;
+            right: 18%;
+            opacity: 0.6;
+            scroll-behavior: smooth;
+        }
+        
+        .float-image-2 {
+            position: fixed;
+            bottom: 7%;
+            right: 2%;
+            width: 50px;
+            border-radius: 50%;
+            -webkit-box-shadow: 2px 5px 12px 0px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 2px 5px 12px 0px rgba(0, 0, 0, 0.4);
+            box-shadow: 2px 5px 12px 0px rgba(0, 0, 0, 0.4);
+            transition-duration: 0.9s;
+            transition-delay: 0.4ms;
+        }
+        
+        .float-image-2:hover {
+            box-shadow: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="head">
+        <h2>Result Generator</h2>
+    </div>
+
+    <section>
+
+        <!-- Marks input Sections -->
+        <div class="main">
+            <div class="box">
+                <h4>Enter Your Marks</h4>
+                <div class="box-inner">
+                    <label for="mth">Maths</label>
+                    <input onclick="generate_result()" type="text" id="mth" placeholder="Maths Marks">
+                    <p id="dataMTH"></p>
+                </div>
+                <div class="box-inner">
+                    <label for="chem">Chemistry</label>
+                    <input onclick="generate_result()" type="text" id="chem" placeholder="Chemistry Marks">
+                    <p id="dataCHEM"></p>
+                </div>
+                <div class="box-inner">
+                    <label for="phy">Physics</label>
+                    <input onclick="generate_result()" type="text" id="phy" placeholder="Physics Marks">
+                    <p id="dataPHY"></p>
+                </div>
+                <div class="box-inner">
+                    <label for="eng">English</label>
+                    <input onclick="generate_result()" type="text" id="eng" placeholder="English Marks">
+                    <p id="dataENG"></p>
+                </div>
+                <div class="box-inner">
+                    <label for="physical">Physical</label>
+                    <input onclick="generate_result()" type="text" id="physical" placeholder="Physical Marks">
+                    <p id="dataPHYSICAL"></p>
+                </div>
+                <div class="box-inner">
+                    <label for="cse">CSE</label>
+                    <input onclick="generate_result()" type="text" id="cse" placeholder="CSE Marks">
+                    <p id="dataCSE"></p>
+                </div>
+                <div class="box-inner btn">
+                    <button id="generate" onclick="generate_result()">Generate Result</button>
+                    <button id="reset" onclick="reset()">Reset</button>
+                </div>
+                <div class="box-inner">
+                    <p id="reset_instructions" class="instructions">Fill all your marks and click on Generate Result</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spacing -->
+        <div class="space"></div>
+        <img class="float-image-3" src="https://assets.oneclass.com/oc-static/static/assets/images/pages/booster_class/card_images/chemistry.svg" alt="">
+        <img class="float-image-1" src="https://assets.oneclass.com/oc-static/static/assets/images/pages/booster_class/card_images/mathematics.svg" alt="">
+        <a href="https://github.com/03prashantpk"><img class="float-image-2" src="https://avatars.githubusercontent.com/u/43730425?v=4" alt=""></a>
+        <!-- Result Section -->
+        <div id="genereateData" class="main genereateData">
+            <div class="box box-bg">
+                <h4>Your Result</h4>
+                <table>
+                    <tr class="thead">
+                        <td>Subject</td>
+                        <td>marks</td>
+                    </tr>
+                    <tr>
+                        <td class="sub_name">Maths</td>
+                        <td id="marks_mth">100</td>
+                    </tr>
+                    <tr>
+                        <td class="sub_name">Chemistry</td>
+                        <td id="marks_Chem">100</td>
+                    </tr>
+                    <tr>
+                        <td class="sub_name">Physics</td>
+                        <td id="marks_Phy">100</td>
+                    </tr>
+                    <tr>
+                        <td class="sub_name">English</td>
+                        <td id="marks_Eng">100</td>
+                    </tr>
+                    <tr>
+                        <td class="sub_name">Physical</td>
+                        <td id="marks_Physical">100</td>
+                    </tr>
+                    <tr>
+                        <td class="sub_name">CSE</td>
+                        <td id="marks_CSE">100</td>
+                    </tr>
+                    <tr class="ttotal thead">
+                        <td class="total_">Total</td>
+                        <td id="marks_total">1000</td>
+                    </tr>
+                </table>
+                <h2 id="response"></h2>
+                <h3 id="response_grade"></h3>
+                <h3 id="response_percentage"></h3>
+
+                <div class="space"></div>
+                <hr>
+                <p class="grade-system"><span>Grade System</span> <br> 40 - 60 Grade D | 61 - 80 Grade C | 81 - 90 Grade B | 91 - 100 Grade A </p>
+                <p class="grade-system"><span>Pass Marks</span> <br> Minimum 22 marks in each subjects</p>
+
+            </div>
+        </div>
+    </section>
+    <div class="space"></div>
+    <div class="footer">
+        <p>This tool is developed using basic html, css and Javascript. To view the source code you can press <b>CTRL + U</b> or Clone from <a href="https://github.com/03prashantpk/Backend-Development-Basic-to-Advance">Github Repo</a></p>
+    </div>
+
+    <!-- Manual Scripts -->
+    <script>
+        // generate Result Functions
+        function generate_result() {
+            //document.getElementById('genereateData').style.display = "none";
+            //document.getElementById('reset_instructions').style.visibility = "hidden";
+
+            var mth = document.getElementById("mth").value;
+            var chem = document.getElementById("chem").value;
+            var phy = document.getElementById("phy").value;
+            var eng = document.getElementById("eng").value;
+            var physical = document.getElementById("physical").value;
+            var cse = document.getElementById("cse").value;
+
+            // print marks
+            document.getElementById("marks_mth").innerHTML = mth;
+            document.getElementById("marks_Chem").innerHTML = chem;
+            document.getElementById("marks_Phy").innerHTML = phy;
+            document.getElementById("marks_Eng").innerHTML = eng;
+            document.getElementById("marks_Physical").innerHTML = physical;
+            document.getElementById("marks_CSE").innerHTML = cse;
+
+
+            //console.log(chem);
+
+            // Check if inputs are more than required
+            if (mth > 100 || chem > 100 || phy > 100 || eng > 100 || physical > 100 || cse > 100) {
+                document.getElementById("reset_instructions").innerHTML = "*All inputs Should be less than or equal to 100";
+                document.getElementById('genereateData').style.display = "none";
+
+            } else {
+                document.getElementById("reset_instructions").innerHTML = "";
+                check_null();
+            }
+
+            // Check null inputs
+            function check_null() {
+                if (mth == "" || chem == "" || phy == "" || eng == "" || physical == "" || cse == "") {
+                    document.getElementById("reset_instructions").innerHTML = "<p class='danger'>*All fields are mandatory.</p>";
+                    document.getElementById('genereateData').style.display = "none";
+
+                } else {
+                    document.getElementById("reset_instructions").innerHTML = "";
+                    calculate();
+                }
+            }
+
+            // calculation of marks and grade functions
+            function calculate() {
+                if (mth <= 22 || chem <= 22 || phy <= 22 || eng <= 22 || physical <= 22 || cse <= 22) {
+                    document.getElementById("response").innerHTML = "<p class='danger'>Failed!</p> <p class='failed'> You Failed in one or more Subjects </p>";
+                } else if (mth <= 59 && chem <= 59 && phy <= 59 && eng <= 59 && physical <= 59 && cse <= 59) {
+                    document.getElementById("response").innerHTML = "You Could have done better!";
+                } else if (mth <= 79 && chem <= 79 && phy <= 79 && eng <= 79 && physical <= 79 && cse <= 79) {
+                    document.getElementById("response").innerHTML = "Good Work, Keep Working hard!";
+                } else if (mth >= 80 && chem >= 80 && phy >= 80 && eng >= 80 && physical >= 80 && cse >= 80) {
+                    document.getElementById("response").innerHTML = "Excellent Results!";
+                } else {
+                    document.getElementById("response").innerHTML = "Average Result!";
+                }
+
+                // Sum of all subjects
+                var sum = parseInt(mth) + parseInt(chem) + parseInt(phy) + parseInt(eng) + parseInt(physical) + parseInt(cse);
+                console.log("Total Sum: " + sum);
+                document.getElementById("marks_total").innerHTML = sum;
+
+                // Calculating percentage
+                var percentage = (sum / 600) * 100;
+                console.log("Total percentage: " + percentage);
+                document.getElementById("response_percentage").innerHTML = "Total percentage: " + percentage.toFixed(2) + "%";
+
+
+                // grade system
+                if (percentage >= 40 && percentage <= 60) {
+                    document.getElementById("response_grade").innerHTML = "Grade: D";
+                } else if (percentage >= 61 && percentage <= 80) {
+                    document.getElementById("response_grade").innerHTML = "Grade: C";
+                } else if (percentage >= 81 && percentage <= 90) {
+                    document.getElementById("response_grade").innerHTML = "Grade: B";
+                } else if (percentage >= 91 && percentage <= 100) {
+                    document.getElementById("response_grade").innerHTML = "Grade: A";
+                } else {
+                    document.getElementById("response_grade").innerHTML = "Grade: E";
+                }
+
+                document.getElementById('genereateData').style.display = "flex";
+
+
+            }
+        }
+
+
+        // Reset functions
+        function reset() {
+            document.getElementById('genereateData').style.visibility = "none";
+            document.getElementById('reset_instructions').style.visibility = "flex";
+            document.getElementById("reset_instructions").innerHTML = "Fill all your marks and click on Generate Result";
+
+
+            // Reseting all inputs fields
+            inputs = document.getElementsByTagName("input");
+            inputs[0].value = ''; // Input 1
+            inputs[1].value = '';
+            inputs[2].value = '';
+            inputs[3].value = '';
+            inputs[4].value = '';
+            inputs[5].value = '';
+        }
+    </script>
+
+</body>
+
+</html>
