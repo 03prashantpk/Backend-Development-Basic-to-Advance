@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Maths Functions</title>
+
+    <style>
+        body {
+            background-color: #b8f9e8;
+            margin: 0;
+            padding: 0%;
+        }
+        
+        section {
+            padding: 4%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        table {
+            border: 1px #424242 solid;
+            width: 70%;
+            padding: 4% 14%;
+            border-radius: 12px;
+            box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.479);
+            -webkit-box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.33);
+            -moz-box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.279);
+            background-color: #41fea0;
+        }
+        
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        
+        input {
+            padding: 4% 6%;
+            border-radius: 6px;
+            border: none;
+            background-color: #e1e1e1;
+            width: 100%;
+        }
+        
+        button {
+            width: 100px;
+            padding: 4px 8px;
+            background-color: #FF5F0F;
+            border-radius: 6px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.6);
+            -webkit-box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.53);
+            -moz-box-shadow: -7px 10px 6px -6px rgba(0, 0, 0, 0.53);
+            cursor: pointer;
+            animation-duration: 4ms;
+        }
+        
+        button:hover {
+            padding: 4px 8px;
+            background-color: #FF5F0F;
+            border-radius: 6px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            animation-duration: 4ms;
+        }
+        
+        caption {
+            text-transform: capitalize;
+            padding: 4% 8%;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 3% 6%;
+        }
+        
+        .power_ {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <table>
+            <caption>JS Maths Functions</caption>
+            <tr>
+                <td>
+                    <span id="sqrt_sol">JS Mth Square Root</span>
+                    <input type="number" placeholder="Square Root" name="" id="sqrt_">
+                </td>
+                <td>
+                    <span id="roundOff_sol">JS Mth Round</span>
+                    <input type="number" placeholder="Round Off" name="" id="roundOff">
+                </td>
+                <td>
+                    <span id="abs_sol">JS Mth abs</span>
+                    <input type="number" placeholder="ABS" name="" id="abs">
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <span id="power_sol">JS Mth Power</span>
+                    <input class="power_" type="number" placeholder="Number" name="" id="power"> <br>
+                    <br>
+                    <input class="power_" type="number" placeholder="Power" name="" id="power_off">
+
+                </td>
+                <td>
+                    <button id="submit_btn" onclick="doTheTask()">Submit</button>
+                </td>
+            </tr>
+
+        </table>
+    </section>
+
+    <script>
+        function doTheTask() {
+
+            // Creating variable
+            var sqrt_ = document.getElementById("sqrt_").value;
+            var roundOff = document.getElementById("roundOff").value;
+            var abs = document.getElementById("abs").value;
+            var power = document.getElementById("power").value;
+            var power_off = document.getElementById("power_off").value;
+
+            // logic and maths functions
+            //document.write(sqrt_)
+
+            document.getElementById("sqrt_sol").innerHTML = Math.sqrt(sqrt_);
+            document.getElementById("roundOff_sol").innerHTML = Math.round(roundOff);
+            document.getElementById("abs_sol").innerHTML = Math.abs(abs);
+            document.getElementById("power_sol").innerHTML = Math.pow(power, power_off);
+
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+
+<body>
+
+    <script>
+        var x = parseInt(prompt("Enter a number"));
+
+        if (isNaN(x)) {
+            alert("Not a no");
+            document.write("Please enter a posivite no");
+        } else {
+            if (x <= 0) {
+                alert("You didn't enter a positive no.");
+            } else {
+                document.write("Printing no's <br> <br>");
+                document.write("Using while loop" + "<br>");
+                var i = 1;
+
+                while (i <= x) {
+                    document.write("For While Loop " + i + "<br>");
+                    i++;
+                }
+
+                document.write("<br> Using for loop <br>");
+                for (i = 1; i <= x; i++) {
+                    document.write("For Loop " + i + "<br>");
+                }
+
+                document.write("<br> Using for loop <br>");
+
+                do {
+                    document.write(i + "<br>");
+                    i++;
+                }
+                while (i < n);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

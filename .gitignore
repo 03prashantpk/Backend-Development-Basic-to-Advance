@@ -1,0 +1,5 @@
+# Ignore Node_modules
+Node JS/node_modules/
+
+# Ignore local VS code config file
+.dist

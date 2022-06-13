@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple of 5</title>
+</head>
+
+<body>
+
+    <script>
+        var num = 10;
+        result = 0;
+        for (var i = 1; i <= num; i++) {
+            if (i % 5 == 0) {
+                result += i;
+            }
+        }
+        document.write("Sum of Multiple of 5: " + result + "<br>");
+
+        var num_2 = 20;
+        result_2 = 0;
+        for (var i = 1; i <= num_2; i++) {
+            if (i % 2 != 0) {
+                result_2 += i;
+            }
+        }
+        document.write("Sum of odds: " + result_2 + "<br>");
+
+        var num_3 = 20;
+        result_3 = 0;
+        for (var i = 1; i <= num_3; i++) {
+            if (i % 1 == 0) {
+                result_3 += i;
+            }
+        }
+        document.write("Sum of Prime: " + result_3 + "<br>");
+    </script>
+
+</body>
+
+</html>

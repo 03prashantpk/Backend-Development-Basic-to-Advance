@@ -1,5 +1,7 @@
 # BI - Summer Traning Backend Development
 
+## READ THIS 👇
+### AFTER 8 JUNE PLS NAVIGATE TO NODE JS FOLDER//DIRECTORY
 
  ## TOP NEW PROJECTS
  My Recent Projects with Backend: <br>
