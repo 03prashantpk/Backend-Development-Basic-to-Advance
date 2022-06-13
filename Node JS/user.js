@@ -13,7 +13,6 @@ console.log("yargs ", argv);
 
 
 // Conditions
-
 // TO run add command
 if (command === 'add') {
     var note = notes.addNote(argv.title, argv.body);

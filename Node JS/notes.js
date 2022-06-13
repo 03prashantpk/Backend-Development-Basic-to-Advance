@@ -56,7 +56,7 @@ var getAll = () => {
 };
 
 // Get notes with title and body
-var getNote = (title, body) => {
+var getNote = (title) => {
     // dummy console
     //console.log('Getting note', `\nTitle: ${title} \nBody:  ${body}`);
 
@@ -64,7 +64,7 @@ var getNote = (title, body) => {
     var filteredNotes = notes.filter((note) => {
         return note.title === title;
     });
-    return filteredNotes[0];
+    return filteredNotes;
 };
 
 
