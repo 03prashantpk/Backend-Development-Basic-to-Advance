@@ -28,7 +28,7 @@ if (command === 'add') {
     var readingNotes = notes.getNote(argv.title);
 
     if (readingNotes) {
-        //console.log("Working...");
+        //console.log("Working...");Ṭ
         notes.getNote(argv.title);
         console.log(readingNotes);
     } else {
@@ -54,5 +54,5 @@ if (command === 'add') {
 
     // Else Invailed command
 } else {
-    notes.getAllNote("Command Not recog...");
+    console.log("Command Not Recognised!");
 }

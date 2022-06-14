@@ -1,7 +1,11 @@
 # BI - Summer Traning Backend Development
 
 ## READ THIS 👇
-### AFTER 8 JUNE PLS NAVIGATE TO NODE JS FOLDER//DIRECTORY
+### AFTER 8 or 10 JUNE PLS NAVIGATE TO NODE JS FOLDER//DIRECTORY
+
+### AFTER 10 or 14 JUNE PLS NAVIGATE TO Express JS FOLDER//DIRECTORY
+
+## Projects Files are also Included, if you want to learn something extra.
 
  ## TOP NEW PROJECTS
  My Recent Projects with Backend: <br>
